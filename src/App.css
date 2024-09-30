@@ -1,0 +1,1079 @@
+.App {
+  text-align: center;
+}
+
+@media only screen and (min-width: 435px) {
+  body {
+    margin: 0%;
+    padding: 0%;
+  }
+  .App {
+    width: 100%;
+    height: 100vh;
+  }
+  .nav {
+    margin: 0;
+    padding: 1rem;
+    float: left;
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    border-right: 1px black solid;
+    font-size: 20px;
+  }
+  .nav a {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: left;
+    padding-left: 2rem;
+    text-decoration: none;
+    color: black;
+  }
+  .nav img {
+    padding: 0rem;
+    margin: 0rem;
+    padding-right: 1rem;
+  }
+  .explore-container {
+    width: 50%;
+    margin: auto;
+
+    padding-top: 1rem;
+  }
+  .homeHeader {
+    display: none;
+  }
+  .exploreInput {
+    display: none;
+  }
+
+  .PostCard-container {
+    width: 90%;
+    text-align: left;
+    padding: 1rem;
+    position: relative;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(
+      0,
+      0,
+      0,
+      0.3
+    ); /* Adjust the alpha (last value) for darkness */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Add a smooth transition effect */
+  }
+  .PostCard-container:hover .overlay {
+    opacity: 1;
+  }
+  .PostCard-container span {
+    display: flex;
+    justify-content: left;
+  }
+  /* Define styles for the container div */
+  .container {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    overflow: hidden;
+    transition: background-color 0.3s ease; /* Add a smooth transition effect for background color */
+  }
+
+  /* Define styles for the image or content inside the container */
+  .content {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* If using an image, this ensures it covers the entire container */
+  }
+
+  /* Background color and content on hover */
+  .container:hover {
+    background-color: black;
+  }
+
+  .PostCard-container:hover .image-overlay {
+    opacity: 10;
+  }
+
+  /* Define styles for the overlay that appears on hover */
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(
+      0,
+      0,
+      0,
+      0.3
+    ); /* Adjust the alpha (last value) for darkness */
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Add a smooth transition effect */
+  }
+
+  /* Two images overlay */
+  .image-overlay {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.3s ease; /* Add a smooth transition effect */
+    display: flex;
+  }
+
+  /* Adjust the size and position of your overlay images */
+  .image1 {
+    width: 50px;
+    height: 50px;
+    margin: 0 30px;
+    color: white;
+
+    /* Add your image source */
+  }
+
+  .image2 {
+    width: 50px;
+    height: 50px;
+    margin: 0 30px;
+    color: white;
+    /* Add your image source */
+  }
+  .image {
+    width: 100%;
+  }
+  .PopUpSinglePost {
+    position: fixed;
+    display: flex;
+
+    width: 60%;
+    top: 30;
+    left: 0;
+    margin: auto;
+    height: 80vh;
+    z-index: 999;
+    margin-left: 18rem;
+
+    background-color: white;
+    margin-top: 2rem;
+  }
+  .popUpContainer {
+    display: flex;
+    animation: popUpAnimation 0.5s ease-out;
+  }
+  @keyframes popUpAnimation {
+    0% {
+      transform: translateY(50%) scaleX(0);
+    }
+    50% {
+      transform: translateY(0) scaleX(1);
+    }
+    100% {
+      transform: translateY(0) scaleX(1);
+    }
+  }
+
+  .singlePostImg {
+    width: 30rem;
+    display: flex;
+    height: 80vh;
+  }
+
+  .singlePostInfo {
+    padding: 0.5rem;
+    display: flex;
+  }
+  .singlePostInfo h2 {
+    position: absolute;
+    margin-left: 3rem;
+  }
+  .singlePostSpan {
+    position: absolute;
+  }
+
+  .circle-image {
+    width: 50px; /* Set your desired width */
+    height: 50px; /* Set your desired height */
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  /* Optional: Add a border or box-shadow for styling */
+  .circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire circle */
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add a box shadow */
+  }
+  .singlePostInfo span {
+    display: flex;
+  }
+
+  .singlePostInfo h2 {
+    font-size: 16px;
+    padding-left: 1rem;
+  }
+
+  .hr {
+    border-top: 2px solid black;
+  }
+  .scrollable-div {
+    height: 250px; /* Set the specific height for your div */
+    overflow-x: auto;
+    /* Hide the vertical scrollbar  */
+
+    margin-top: 4rem;
+    padding-top: 0.5rem;
+    border-top: 0.1px solid wheat;
+    z-index: 0;
+    width: 28%;
+    position: fixed;
+  }
+  .scrollable-div::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollable-div span {
+    padding: 0.5rem;
+  }
+  .scrollable-div span h3 {
+    font-size: 14px;
+    margin-left: 1rem;
+  }
+  .para {
+    margin-left: 1rem;
+    text-align: left;
+    width: 100%;
+    height: 100%;
+  }
+  .text {
+    display: flex;
+  }
+  .content-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    white-space: nowrap;
+
+    height: 100%;
+  }
+  .content-list li {
+    display: flex;
+
+    flex-direction: column;
+  }
+  .content-list h2 {
+    display: flex;
+    margin-inline: 0%;
+    margin: 0%;
+
+    margin-block-end: 0%;
+    margin-block-start: 0%;
+  }
+
+  .content-list p {
+    display: flex;
+    margin-inline: 0%;
+    margin: 0%;
+    padding-left: 4rem;
+    margin-bottom: 1rem;
+  }
+  .commentBar {
+    display: flex;
+    width: 28%;
+    top: 60%;
+    height: 25vh;
+    border-top: 0.1px wheat solid;
+
+    position: fixed;
+    background-color: white;
+  }
+  .commentImgs {
+    padding: 1rem;
+  }
+  .commentImgs img {
+    padding-right: 1rem;
+  }
+  .bookmark {
+    margin-left: 15rem;
+  }
+
+  .addComment {
+    position: absolute;
+    display: flex;
+
+    width: 100%;
+    top: 50%;
+    border-top: 0.1px solid wheat;
+  }
+  .addComment input {
+    width: 100%;
+    border: none;
+
+    padding-top: 1rem;
+  }
+  .cross {
+    margin: auto;
+  }
+
+  .bookmarkHome {
+    position: absolute;
+
+    right: 5%;
+  }
+  .pHome {
+    margin-bottom: 0%;
+    font-weight: 600;
+  }
+  .homeParaContainer {
+    max-height: 2.5em;
+    width: 90%;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .readMoreBtn {
+    position: absolute;
+    bottom: 0%;
+    right: 0%;
+    padding-top: 0.5rem;
+
+    background-color: #ffffff;
+    border: none;
+
+    cursor: pointer;
+    color: gray;
+    margin-top: 0%;
+  }
+  .cmtP {
+    margin-top: 0%;
+    margin-inline: 0%;
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 1%;
+  }
+
+  .inputGrp {
+    display: flex;
+    align-items: center;
+  }
+  .cmtBarHome {
+    width: 100%;
+    padding-bottom: 0.5rem;
+    border: none;
+    border-bottom: 0.5px solid wheat;
+    outline: none;
+  }
+  .PostCmtBtn {
+    background-color: white;
+    border: none;
+    color: #60a5fa;
+    font-weight: 600;
+  }
+  .suggestBox {
+    position: fixed;
+    right: 0%;
+    margin-right: 2rem;
+    width: 20%;
+    height: 60vh;
+    padding: 0.5rem;
+  }
+  .suggestBox span {
+    display: flex;
+  }
+  .suggestBox p {
+    position: absolute;
+    right: 50%;
+    top: 5%;
+    font-size: 12px;
+    padding-top: 0.5rem;
+    color: gray;
+  }
+  .suggestBox h4 {
+    display: flex;
+    padding: 0.5rem;
+    margin-top: 0%;
+    color: gray;
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .suggestUl {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    padding-inline-start: 0%;
+  }
+  .suggestUl li {
+    padding: 0.5rem;
+  }
+
+  .suggestUl li h5 {
+    padding-top: 5%;
+    margin-top: 5%;
+    font-size: 14px;
+    padding-left: 0.5rem;
+  }
+
+  .suggestUl button {
+    position: absolute;
+    right: 0;
+    margin-top: 1rem;
+    margin-right: 0.5rem;
+    background-color: white;
+    border: none;
+    color: blue;
+  }
+  .suggestBox h2 {
+    position: absolute;
+    right: 45%;
+    padding-top: 0%;
+    margin-top: 5%;
+    font-size: 14px;
+  }
+  .GetUserContainer {
+    width: 50rem;
+    margin: auto;
+    height: 100vh;
+    padding: 1rem;
+  }
+  .userInfoContainer {
+    width: 50rem;
+    height: 40vh;
+    display: flex;
+    margin: auto;
+    border-bottom: 1px solid wheat;
+    position: absolute;
+  }
+  .imgContainer {
+    width: 25rem;
+  }
+  .userInfo {
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    padding-top: 2rem;
+  }
+  .userInfoP {
+    font-size: 20px;
+    margin-top: 0%;
+    display: flex;
+    margin-left: 3rem;
+    font-weight: 400;
+    padding-bottom: 0.3rem;
+  }
+  .userInfo p {
+    margin-top: 0%;
+    display: flex;
+    margin-left: 3rem;
+    font-size: 14px;
+  }
+  .userInfo span {
+  }
+  .userInfo span button {
+    background-color: wheat;
+    margin: auto;
+    margin-top: 0%;
+    padding: 0.4rem;
+    border: none;
+    border-radius: 0.5rem;
+    width: 25%;
+    font-weight: 600;
+    margin-left: 1rem;
+  }
+
+  .userInfo div {
+    display: flex;
+    justify-content: center;
+    margin-left: 0%;
+  }
+  .userInfo div p {
+    padding-right: 1rem;
+  }
+  .circle-image-user {
+    width: 200px; /* Set your desired width */
+    height: 200px; /* Set your desired height */
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 2rem;
+  }
+  .userPgTogglePost {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 0%;
+    top: 100%;
+  }
+  .userPgTogglePost img {
+    margin-left: 1rem;
+    padding-top: 1rem;
+  }
+  .userPgTogglePost button {
+    margin-right: 1rem;
+    border-top: 1px solid wheat;
+    background-color: white;
+    font-size: 12px;
+    padding-top: 1rem;
+    border: none;
+  }
+  .userPgData {
+    margin-top: 22rem;
+  }
+  .createDivContainer {
+    position: fixed;
+    display: flex;
+
+    width: 50%;
+    height: 60vh;
+    left: 0;
+    margin: auto;
+
+    z-index: 999;
+    margin-left: 20rem;
+
+    background-color: #fff;
+    border: 1px solid black;
+    margin-top: 5rem;
+    border-radius: 1rem;
+  }
+  .pCreate {
+    display: flex;
+    justify-content: center;
+
+    position: absolute;
+    left: 0;
+    right: 0;
+    width: 97.8%;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+  }
+  .imgUpload {
+    border-right: 1px solid black;
+    width: 50%;
+    margin-top: 3rem;
+    border-top: 1px solid black;
+    background-size: cover;
+  }
+  .postUpload {
+    width: 50%;
+    padding: 1rem;
+    margin-top: 3rem;
+    border-top: 1px solid black;
+  }
+  .spanCreate h3 {
+    background-color: #fff;
+    position: absolute;
+    top: 17%;
+    right: 27%;
+    font-size: 16px;
+    font-weight: 500;
+  }
+
+  .postUpload textarea {
+    width: 100%;
+    padding-bottom: 2rem;
+    margin-top: 0.5rem;
+    overflow-y: auto;
+    resize: none;
+    border: none;
+    outline: none;
+    font-size: 14px;
+  }
+  .pCreate button {
+    display: flex;
+    justify-content: right;
+
+    position: absolute;
+    right: 0%;
+    margin-right: 1rem;
+    border: none;
+    background-color: white;
+    font-size: 16px;
+    margin-top: 0.5%;
+    color: blue;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  .imgUpload img {
+    width: 100%;
+    height: 52vh;
+    border-bottom-left-radius: 0.5rem;
+    border-bottom: 1px solid black;
+  }
+  .imgUpload button {
+    display: flex;
+
+    margin: auto;
+    margin-top: 25%;
+    background-color: blue;
+    padding: 0.5rem;
+    color: white;
+    font-weight: 600;
+    border: 1px solid blue;
+    width: 60%;
+    justify-content: center;
+    border-radius: 0.5rem;
+  }
+
+  .linkH2 {
+    cursor: pointer;
+  }
+
+  .BookmarkContainer {
+    background-color: red;
+
+    width: 25rem;
+  }
+  .postSaveContainer {
+    margin-top: 22rem;
+  }
+  .brandName {
+    font-size: 30px;
+    padding: 1rem;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+  }
+  .moreMobileBtn {
+    display: none;
+  }
+  .image-grid {
+    display: none;
+  }
+  .loginContainer {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    width: 20%;
+    height: 60%;
+    padding: 20px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 0.1px solid lightgray;
+  }
+  .loginContainer h3 {
+    font-size: 30px;
+    margin-top: 0.5em;
+  }
+  .loginContainer input {
+    padding: 0.5rem;
+    width: 75%;
+    margin-bottom: 0.5rem;
+  }
+  .loginContainer button {
+    width: 80%;
+
+    margin-top: 0.5rem;
+    padding: 0.5rem;
+    background-color: #60a5fa;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 0.5rem;
+  }
+  .loginContainer button:hover {
+    background-color: #3b82f6;
+  }
+  .loginContainer p {
+    color: gray;
+    font-weight: 600;
+    font-size: 12px;
+    padding-top: 1rem;
+  }
+  .loginContainer h4 {
+    font-weight: 400;
+  }
+  .followBtn {
+    background-color: #60a5fa;
+    border: none;
+    padding: 0.3rem;
+    border-radius: 1rem;
+    font-weight: 600;
+    color: white;
+    margin: auto;
+    width: 70%;
+    margin-top: 0%;
+  }
+}
+
+@media only screen and (max-width: 425px) {
+  .App {
+    width: 100%;
+    height: 100vh;
+  }
+  .nav {
+    background-color: white;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    bottom: 0%;
+    padding: 1rem;
+    z-index: 999;
+  }
+  .suggestBox {
+    display: none;
+  }
+  .homeHeader {
+    position: fixed;
+    background-color: white;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    padding-bottom: 2%;
+    display: flex;
+    flex-direction: column;
+    font-size: 18px;
+    font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS",
+      sans-serif;
+    border-bottom: 1px solid black;
+    width: 100%;
+    z-index: 999;
+  }
+
+  .linkH2 {
+    font-size: 16px;
+    padding-left: 1rem;
+  }
+
+  .explore-container {
+    width: 100%;
+
+    padding-bottom: 4rem;
+  }
+  .PostCard-container {
+    width: 100%;
+
+    margin-bottom: 1rem;
+  }
+  .image {
+    width: 20rem;
+  }
+
+  .PostCard-container span {
+    display: flex;
+    justify-content: left;
+  }
+  .circle-image {
+    width: 40px; /* Set your desired width */
+    height: 40px; /* Set your desired height */
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 1rem;
+  }
+  .circle-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the image covers the entire circle */
+
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Optional: Add a box shadow */
+  }
+
+  .homePgCmtBar {
+    background-color: white;
+  }
+  .homePostImg {
+    display: flex;
+    padding: 0.5rem;
+  }
+  .homePostImg img {
+    padding-left: 1rem;
+  }
+  .bookmarkHome {
+    position: absolute;
+    right: 0%;
+    margin-right: 1rem;
+  }
+  .commentImgs span {
+    padding-left: 1rem;
+  }
+  .homeParaContainer {
+    max-height: 2.5em;
+    width: 90%;
+    overflow: hidden;
+  }
+  .homeParaContainer p {
+    display: flex;
+    text-align: left;
+    padding-left: 0.5rem;
+    padding-right: 1rem;
+  }
+  .readMoreBtn {
+    display: none;
+  }
+  .moreMobileBtn {
+    position: absolute;
+    right: 0;
+    margin-right: 1rem;
+    background-color: white;
+    border: none;
+    font-weight: 600;
+  }
+  .pHome {
+    font-size: 16px;
+    font-weight: 600;
+    margin-bottom: 0%;
+  }
+  .cmtP {
+    display: flex;
+    margin: 0%;
+    padding-left: 1rem;
+    font-size: 14px;
+  }
+  .inputGrp {
+    display: none;
+  }
+  .popUpContainer {
+    display: none;
+  }
+  .ResizablePopUp {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: gray; /* Adjust background color as needed */
+    overflow: hidden;
+    transition: height 0.3s ease; /* Add smooth transition for height changes */
+    z-index: 999;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+  }
+  .ResizablePopUp hr {
+    width: 10%;
+    padding: 0.1rem;
+    background-color: white;
+    border-radius: 2rem;
+  }
+  .ResizablePopUp h3 {
+    font-size: 12px;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid black;
+    color: white;
+    font-weight: 400;
+  }
+  .PopUpSinglePost {
+    display: none;
+  }
+  .image-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 5px; /* Adjust the gap between images as needed */
+    overflow-y: auto;
+    height: 100vh;
+    width: 100%;
+  }
+
+  .image-item {
+    width: calc(
+      33.33% - 20px
+    ); /* 33.33% of the viewport width with a gap of 10px */
+    height: auto;
+    border-radius: 2px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+  }
+  .exploreInput {
+    padding: 0.5rem;
+    display: flex;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    z-index: 999;
+  }
+  .exploreInput input {
+    display: flex;
+    margin: auto;
+    width: 80%;
+    padding: 0.4rem;
+    background-color: #f3f4f6;
+    border-radius: 0.2rem;
+    border: none;
+    outline: none;
+    margin-left: 1rem;
+  }
+  .imgContainer {
+    padding-top: 3rem;
+  }
+  .createDivContainer {
+    display: none;
+  }
+  .brandName {
+    display: none;
+  }
+  .AddNewPostContainer {
+    width: 100%;
+    height: 100%;
+  }
+  .newPostHead {
+    display: flex;
+    border-bottom: 1px solid black;
+    padding-bottom: 0.2rem;
+  }
+  .newPostHead p {
+    margin: auto;
+    padding-top: 0.5rem;
+  }
+  .newPostHead button {
+    background-color: white;
+    border: none;
+    color: blue;
+    font-weight: 600;
+    margin-right: 0.5rem;
+    display: flex;
+    justify-content: left;
+    padding-top: 0.5rem;
+  }
+  .newPostHead img {
+    padding-left: 1rem;
+    padding-top: 0.2rem;
+  }
+  .newPostImg {
+    width: 100%;
+  }
+  .newPostCaption {
+    display: flex;
+
+    justify-content: left;
+
+    border-bottom: 0.5px solid grey;
+    padding: 0.5rem;
+  }
+  .newPostCaption textarea {
+    border: none;
+    outline: none;
+    margin-left: 0.5rem;
+    width: 90%;
+  }
+  .loginContainer {
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+
+    width: 60%;
+    height: 50%;
+    padding: 20px;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    border: 0.1px solid lightgray;
+  }
+  .loginContainer h3 {
+    font-size: 20px;
+    margin-top: 0.5em;
+  }
+  .loginContainer input {
+    padding: 0.3rem;
+    width: 75%;
+    margin-bottom: 0.5rem;
+  }
+  .loginContainer button {
+    width: max-content;
+
+    margin-top: 0.5rem;
+    padding: 0.3rem;
+    background-color: #60a5fa;
+    border: none;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+  .loginContainer button:hover {
+    background-color: #3b82f6;
+  }
+  .loginContainer p {
+    color: gray;
+    font-weight: 600;
+    font-size: 12px;
+    padding-top: 1rem;
+  }
+  .loginContainer h4 {
+    font-weight: 400;
+    font-size: small;
+  }
+  .userInfoContainer {
+    height: 40vh;
+    display: flex;
+    margin: auto;
+    border-bottom: 1px solid wheat;
+  }
+  .imgContainer {
+    width: 5rem;
+    padding-top: 1rem;
+  }
+  .circle-image-user {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    padding: 1rem;
+  }
+  .userInfo {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .userInfo span {
+    display: flex;
+    flex-direction: column;
+
+    margin-bottom: 5rem;
+  }
+  .userInfo span button {
+    background-color: wheat;
+    display: inline;
+  }
+  .userInfo div {
+    margin-left: 0%;
+  }
+  .userInfo div p {
+    display: inline;
+  }
+
+  .userPgTogglePost {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    right: 0%;
+    top: 100%;
+  }
+  .userPgTogglePost img {
+    margin-left: 1rem;
+    padding-top: 1rem;
+  }
+  .userPgTogglePost button {
+    margin-right: 1rem;
+    border-top: 1px solid wheat;
+    background-color: white;
+    font-size: 12px;
+    padding-top: 1rem;
+    border: none;
+  }
+  .userName {
+    color: green;
+    position: absolute;
+    top: 20%;
+    left: 0%;
+  }
+  .userName p {
+    margin: 0%;
+  }
+}
