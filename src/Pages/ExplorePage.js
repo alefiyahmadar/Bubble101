@@ -59,7 +59,7 @@ export const ExplorePage = () => {
           <SinglePostCard {...e} />
         ))}
       </div>
-      <div className="exploreInput">
+      <div className="exploreInput" style={{display:showPost ? "none" :"flex"}} >
         <img
           onClick={() => setPost(false)}
           style={{ display: showPost ? "flex" : "none" }}
@@ -69,7 +69,7 @@ export const ExplorePage = () => {
           alt="long-arrow-left"
         />
 
-        <input placeholder="Search"></input>
+        <input  placeholder="Search"></input>
       </div>
       <div className="imgContainer">
         <div
@@ -89,7 +89,7 @@ export const ExplorePage = () => {
           ) )}
         </div>
         <div 
-        style={{ display: showPost ? "block" : "none" , paddingTop:"1rem" }}
+        style={{ display: showPost ? "block" : "none"  }}
         >
           {GetNewArray.map((e) => (
             <PostCard {...e} />
