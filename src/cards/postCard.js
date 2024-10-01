@@ -28,9 +28,7 @@ export const PostCard = (post, index) => {
   const usersList = JSON.parse(localStorage.getItem("usersArray"));
 
   const getProfile = usersList.find((e) => e.username === username);
-  console.log(StoredPost);
-
-  console.log(usersList);
+  
 
   return (
     <div

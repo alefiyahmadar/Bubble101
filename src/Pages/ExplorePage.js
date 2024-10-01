@@ -9,6 +9,7 @@ import { useEffect } from "react";
 export const ExplorePage = () => {
   const {
     DataPost,
+    getPost,
     showSinglePost,
     setShowSinglePost,
     SinglePost,
@@ -18,13 +19,17 @@ export const ExplorePage = () => {
     GetNewArray,
     StoredPost,
   } = useContext(MediaContext);
-  console.log(DataPost);
-  console.log(SinglePost);
+  
 
   useEffect(() => {
     window.scrollTo(0, 0);
     document.documentElement.scrollTop = 0;
   }, []);
+
+  console.log(DataPost);
+  console.log(SinglePost);
+  console.log(getPost)
+
 
   return (
     <div className="explore-container">
@@ -71,19 +76,21 @@ export const ExplorePage = () => {
           className="image-grid"
           style={{
             display:
-              window.innerWidth < 430 ? (showPost ? "none" : "flex") : "none",
+              window.innerWidth > 430 ? "none" : (showPost ? "none" :"flex")
           }}
         >
-          {DataPost.map((e) => (
+          {getPost.map((e) => (
             <img
               className="image-item"
               onClick={() => GetExploreScroll(e._id)}
               src={e.image}
               alt=""
             ></img>
-          ))}
+          ) )}
         </div>
-        <div style={{ display: showPost ? "block" : "none" }}>
+        <div 
+        style={{ display: showPost ? "block" : "none" , paddingTop:"1rem" }}
+        >
           {GetNewArray.map((e) => (
             <PostCard {...e} />
           ))}

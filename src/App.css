@@ -741,6 +741,7 @@
     border-bottom: 1px solid black;
     width: 100%;
     z-index: 999;
+    top: 0;
   }
 
   .linkH2 {
@@ -750,6 +751,7 @@
 
   .explore-container {
     width: 100%;
+    
 
     padding-bottom: 4rem;
   }
@@ -873,7 +875,7 @@
     gap: 5px; /* Adjust the gap between images as needed */
     overflow-y: auto;
     height: 100vh;
-    width: 100%;
+    width: 20rem;
   }
 
   .image-item {
@@ -892,6 +894,7 @@
     background-color: white;
     width: 100%;
     z-index: 999;
+    top: 0%;
   }
   .exploreInput input {
     display: flex;
