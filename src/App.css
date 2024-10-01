@@ -751,7 +751,6 @@
 
   .explore-container {
     width: 100%;
-    
 
     padding-bottom: 4rem;
   }
@@ -894,7 +893,7 @@
     background-color: white;
     width: 100%;
     z-index: 999;
-    top: 0%;
+    top: 0;
   }
   .exploreInput input {
     display: flex;

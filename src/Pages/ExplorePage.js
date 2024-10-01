@@ -59,7 +59,7 @@ export const ExplorePage = () => {
           <SinglePostCard {...e} />
         ))}
       </div>
-      <div className="exploreInput" style={{display:showPost ? "none" :"flex"}} >
+      <div className="exploreInput"  >
         <img
           onClick={() => setPost(false)}
           style={{ display: showPost ? "flex" : "none" }}
@@ -76,7 +76,7 @@ export const ExplorePage = () => {
           className="image-grid"
           style={{
             display:
-              window.innerWidth > 430 ? "none" : (showPost ? "none" :"flex")
+              window.innerWidth > 430 ? "none" : (showPost ? "none" :"grid")
           }}
         >
           {getPost.map((e) => (
@@ -89,7 +89,7 @@ export const ExplorePage = () => {
           ) )}
         </div>
         <div 
-        style={{ display: showPost ? "block" : "none"  }}
+        style={{ display: showPost ? "block" : "none" , paddingTop:"1rem"  }} 
         >
           {GetNewArray.map((e) => (
             <PostCard {...e} />
