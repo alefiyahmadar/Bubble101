@@ -14,6 +14,7 @@ import { LoginPage } from "./Pages/LoginPage";
 import { SignUpPage } from "./Pages/SignUp";
 import { useLocation } from "react-router-dom";
 
+
 function App() {
   const [selectedImage, setSelectedImage] = useState(null);
   const fileInputRef = useRef(null);
@@ -25,6 +26,8 @@ function App() {
     newPostObj,
     setPostObj,
     storedUser,
+    UploadToCloudinary,
+    permanentUrl
   } = useContext(MediaContext);
 
   const { showSinglePost, AddPostBtn } = useContext(MediaContext);
@@ -34,9 +37,11 @@ function App() {
 
     if (file) {
       setSelectedImage(file);
+      UploadToCloudinary(file); // for permanent URL
     }
-    console.log(file.name);
-    setPostObj({ ...newPostObj, image: file, username: storedUser.username });
+    console.log(permanentUrl);
+    setPostObj({ ...newPostObj, image: permanentUrl, username: storedUser.username });
+    console.log(newPostObj)
   };
   const location = useLocation();
 

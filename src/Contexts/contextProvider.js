@@ -33,6 +33,8 @@ export const ContextProvider = ({ children }) => {
 
   const [loggedInUser, setLoggedInUser] = useState({});
 
+  const [permanentUrl , setPermanentUrl] = useState("")
+
   const [defaultUser, setDefaultUser] = useState({
     _id: uuid(),
     firstName: "Adarsh",
@@ -122,6 +124,7 @@ export const ContextProvider = ({ children }) => {
     const GetArray = JSON.parse(localStorage.getItem("PostArray"));
     const updatedArr = [...GetArray, newPostObj];
     setGetPost(updatedArr);
+
     console.log(updatedArr);
     localStorage.setItem("PostArray", JSON.stringify(updatedArr));
 
@@ -232,9 +235,34 @@ export const ContextProvider = ({ children }) => {
 
   const isPostLiked = (post) => {
     const getPost = StoredPost.find((u) => u._id === post._id);
-    console.log(getPost);
+    
     return getPost?.likes.likedBy.some((p) => p === storedUser.username);
   };
+
+  const UploadToCloudinary = async (file) => {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("upload_preset", "bubble"); // Replace with yours
+
+  try {
+    const res = await fetch(
+      "https://api.cloudinary.com/v1_1/dbrklv228/image/upload", // Replace with your cloud name
+      {
+        method: "POST",
+        body: formData,
+      }
+    );
+    const data = await res.json();
+    console.log("Permanent URL:", data.secure_url);
+    // Save data.secure_url to DB or use in your app
+     setPostObj({ ...newPostObj, image: data.secure_url , username: storedUser.username });
+    setPermanentUrl(data.secure_url)
+  } catch (err) {
+    console.error("Upload failed:", err);
+  }
+};
+
+console.log(permanentUrl)
 
   return (
     <MediaContext.Provider
@@ -286,6 +314,8 @@ export const ContextProvider = ({ children }) => {
         BookMarkHandler,
         isPostBookmarked,
         isPostLiked,
+        UploadToCloudinary,
+        permanentUrl
       }}
     >
       {children}
