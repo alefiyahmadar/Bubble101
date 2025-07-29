@@ -4,6 +4,7 @@ import { createContext, useEffect, useState } from "react";
 import { users } from "../db/users";
 import { posts } from "../db/posts";
 import { v4 as uuid } from "uuid";
+import { formatDate } from "../db/Utils";
 
 import { useNavigate } from "react-router-dom";
 
@@ -34,6 +35,28 @@ export const ContextProvider = ({ children }) => {
   const [loggedInUser, setLoggedInUser] = useState({});
 
   const [permanentUrl , setPermanentUrl] = useState("")
+
+  const [Name , setFirst] = useState("")
+const [lastName , setLast] = useState("")
+const [UserName , setUserName] = useState("")
+const [Password , setPassword] = useState("")
+const [ Email , setEmail]=useState("")
+const [showAlert, setShowAlert] = useState(false);
+const [alertMsg , setAlertMsg] = useState("")
+  
+const [newUser , setNewUser] = useState({
+     _id:uuid(),
+
+     
+    firstName:Name ,
+    lastName :lastName,
+    username:UserName,
+    follow:true ,
+    password:Password,
+    email:Email,
+    createdAt: formatDate(),
+    updatedAt: formatDate(),
+})
 
   const [defaultUser, setDefaultUser] = useState({
     _id: uuid(),
@@ -315,7 +338,9 @@ console.log(permanentUrl)
         isPostBookmarked,
         isPostLiked,
         UploadToCloudinary,
-        permanentUrl
+        permanentUrl,
+        newUser,setNewUser , Name ,setFirst ,lastName , setLast , UserName , setUserName , Password , setPassword ,Email , setEmail ,
+        setShowAlert,showAlert,alertMsg,setAlertMsg
       }}
     >
       {children}

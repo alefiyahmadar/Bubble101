@@ -10,44 +10,41 @@ export const SignUpPage = () => {
     setLoggedInUser,
     GetUsers,
     SetUsersArr,
+    newUser,setNewUser , Name ,setFirst ,lastName , setLast , UserName , setUserName , Password , setPassword ,Email ,setEmail , setShowAlert
   } = useContext(MediaContext);
 
   const navigate = useNavigate();
-  const SignUpHandler = async () => {
-    try {
-      const creds = {
-        email: loggedInUser.email,
-        password: loggedInUser.password,
-        someUserAttribute1: loggedInUser.firstName,
-        someUserAttribute2: loggedInUser.lastName,
-        username: loggedInUser.username,
-        profileImg:
-          "https://i.pinimg.com/736x/a8/57/00/a85700f3c614f6313750b9d8196c08f5.jpg",
-        bookMark: [],
-      };
+  const SignUpHandler = () => {
+    
 
-      const res = await fetch("/api/auth/signup", {
-        method: "POST",
-        body: JSON.stringify(creds),
-      });
+    
 
-      const { createdUser } = await res.json();
-      console.log(createdUser);
-      localStorage.setItem("user", JSON.stringify(createdUser));
+    navigate("/")
+    
+setIsLoggedIn(true)
 
-      const currentUser = JSON.parse(localStorage.getItem("user"));
-      const updatedArray = [...GetUsers, currentUser];
-      SetUsersArr(updatedArray);
-      console.log(GetUsers);
+setShowAlert(true)
+setAlertMsg(`Welcome ${newUser.username}✨`)
 
-      localStorage.setItem("usersArray", JSON.stringify(updatedArray));
-    } catch (e) {
-      console.log(e);
-    }
+   SetUsersArr([...GetUsers , newUser])
+
+   const upgradedArr = [...GetUsers , newUser]
+
+   localStorage.setItem("usersArray" , JSON.stringify(upgradedArr))
+      
+
+
+   
+
+   
+
+
+
 
     setIsLoggedIn(true);
     navigate("/");
-    console.log(loggedInUser);
+    
+    setLoggedInUser(newUser)
   };
 
   useEffect(() => {
@@ -57,6 +54,8 @@ export const SignUpPage = () => {
     }
   }, [SetUsersArr]);
 
+  
+  console.log(loggedInUser);
   console.log(GetUsers);
 
   return (
@@ -75,32 +74,32 @@ export const SignUpPage = () => {
         </h5>
         <span>
           <input
-            onChange={(e) =>
-              setLoggedInUser({ ...loggedInUser, numberEmail: e.target.value })
+            onChange={(e) =>setNewUser({...newUser , Email:e.target.value})
+              
             }
             placeholder="Mobile Number or email"
           />
           <input
             onChange={(e) =>
-              setLoggedInUser({ ...loggedInUser, firstName: e.target.value })
+              setNewUser({...newUser , firstName:e.target.value})
             }
             placeholder="First Name"
           />
           <input
             onChange={(e) =>
-              setLoggedInUser({ ...loggedInUser, lastName: e.target.value })
+              setNewUser({...newUser , lastName:e.target.value})
             }
             placeholder="Last Name"
           />
           <input
             onChange={(e) =>
-              setLoggedInUser({ ...loggedInUser, username: e.target.value })
+              setNewUser({...newUser , username:e.target.value})
             }
             placeholder="Username"
           />
           <input
             onChange={(e) =>
-              setLoggedInUser({ ...loggedInUser, password: e.target.value })
+              setNewUser({...newUser , password:e.target.value})
             }
             placeholder="password"
           />
