@@ -56,6 +56,10 @@ const [newUser , setNewUser] = useState({
     email:Email,
     createdAt: formatDate(),
     updatedAt: formatDate(),
+    bookMark: [],
+followers: [],
+following: [],
+profileImg:""
 })
 
   const [defaultUser, setDefaultUser] = useState({

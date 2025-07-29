@@ -42,7 +42,7 @@ export const UserPage = () => {
           <img
             alt=""
             className="circle-image-user"
-            src={GetDp.profileImg}
+            src={getUser.profileImg}
           ></img>
         </div>
         <div className="userInfo">
@@ -54,7 +54,7 @@ export const UserPage = () => {
                   : "none",
             }}
           >
-            <h3 className="userInfoP">{GetDp.username}</h3>
+            <h3 className="userInfoP">{getUser.username}</h3>
             <button>Edit profile</button>
             <button>View Archive</button>
           </span>
@@ -67,7 +67,7 @@ export const UserPage = () => {
             }}
             className="userInfoP"
           >
-            {GetDp.username}
+            {getUser.username}
           </h3>
 
           <div>
@@ -75,17 +75,17 @@ export const UserPage = () => {
               <b>{getNumberOfPost.length}</b> Post
             </p>
             <p>
-              <b>{GetDp.followers.length}</b> Followers
+              <b>{getUser.followers.length}</b> Followers
             </p>
             <p>
-              <b>{GetDp.following.length}</b> Following
+              <b>{getUser.following.length}</b> Following
             </p>
           </div>
           <span className="userName">
             <p>
-              {GetDp.someUserAttribute1} {GetDp.someUserAttribute2}
+              {getUser.someUserAttribute1} {getUser.someUserAttribute2}
             </p>
-            <p>{GetDp.status}</p>
+            <p>{getUser.status}</p>
           </span>
 
           <button
@@ -96,9 +96,9 @@ export const UserPage = () => {
                   : "block",
             }}
             className="followBtn"
-            onClick={() => FollowHandler(GetDp)}
+            onClick={() => FollowHandler(getUser)}
           >
-            {getUser.following.includes(GetDp.username) ? "Unfollow" : "Follow"}
+            {getUser.following.includes(getUser.username) ? "Unfollow" : "Follow"}
           </button>
         </div>
         <div className="userPgTogglePost">
@@ -179,7 +179,7 @@ export const UserPage = () => {
         className="userPgData"
         style={{ display: showSaved ? "block" : "none" }}
       >
-        {GetDp.bookMark.map((e) => (
+        {getUser.bookMark.map((e) => (
           <PostCard {...e} overlay />
         ))}
       </div>

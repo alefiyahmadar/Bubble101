@@ -10,7 +10,7 @@ export const SignUpPage = () => {
     setLoggedInUser,
     GetUsers,
     SetUsersArr,
-    newUser,setNewUser , Name ,setFirst ,lastName , setLast , UserName , setUserName , Password , setPassword ,Email ,setEmail , setShowAlert
+    newUser,setNewUser , Name ,setFirst ,lastName , setLast , UserName , setUserName , Password , setPassword ,Email ,setEmail , setShowAlert , setAlertMsg , 
   } = useContext(MediaContext);
 
   const navigate = useNavigate();
@@ -29,8 +29,10 @@ setAlertMsg(`Welcome ${newUser.username}✨`)
    SetUsersArr([...GetUsers , newUser])
 
    const upgradedArr = [...GetUsers , newUser]
+   localStorage.setItem("user" , JSON.stringify(newUser))
 
    localStorage.setItem("usersArray" , JSON.stringify(upgradedArr))
+
       
 
 
@@ -47,12 +49,12 @@ setAlertMsg(`Welcome ${newUser.username}✨`)
     setLoggedInUser(newUser)
   };
 
-  useEffect(() => {
-    const storedUsers = localStorage.getItem("usersArray");
-    if (storedUsers) {
-      SetUsersArr(JSON.parse(storedUsers));
-    }
-  }, [SetUsersArr]);
+  // useEffect(() => {
+  //   const storedUsers = localStorage.getItem("usersArray");
+  //   if (storedUsers) {
+  //     SetUsersArr(JSON.parse(storedUsers));
+  //   }
+  // }, [SetUsersArr]);
 
   
   console.log(loggedInUser);
@@ -74,7 +76,7 @@ setAlertMsg(`Welcome ${newUser.username}✨`)
         </h5>
         <span>
           <input
-            onChange={(e) =>setNewUser({...newUser , Email:e.target.value})
+            onChange={(e) =>setNewUser({...newUser , email:e.target.value})
               
             }
             placeholder="Mobile Number or email"
