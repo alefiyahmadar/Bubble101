@@ -42,7 +42,7 @@ export const UserPage = () => {
           <img
             alt=""
             className="circle-image-user"
-            src={getUser.profileImg}
+            src={getUser.profileImg ? getUser.profileImg : "https://i.pinimg.com/736x/a8/57/00/a85700f3c614f6313750b9d8196c08f5.jpg"}
           ></img>
         </div>
         <div className="userInfo">
